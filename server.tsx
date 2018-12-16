@@ -1,3 +1,5 @@
+import * as hi from './controllers/hi';
+
 var express = require('express');
 
 const next = require('next');
@@ -10,6 +12,7 @@ const server = express();
 app
   .prepare()
   .then(() => {
+    server.get('/hi', hi);
     server.get('*', (req: Request, res: Response) => {
       return handle(req, res);
     });
